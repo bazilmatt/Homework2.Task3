@@ -10,8 +10,6 @@ public class FirstSortMethod implements Sorting <Person> {
                 array[j+1] = array[j];
                 j--;
             }
-            // в этой точке мы вышли, так что j так же -1
-            // или в первом элементе, где текущий >= a[j]
             array[j+1] = current;
         }
 
