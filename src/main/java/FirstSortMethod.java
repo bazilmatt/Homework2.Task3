@@ -46,12 +46,15 @@ public class FirstSortMethod implements Sorting <Person> {
 
 
     public void sortAndPrint(Person[] p) throws Exception {
+        long st = System.nanoTime();
         sortArray(p);
         int i = 0;
         for (Person pp:p) {
             System.out.println(p[i].toString());
             i++;
         }
+        st = System.nanoTime()-st;
+        System.out.println("Время выполнения первого метода сортировки - " + st);
 
     }
 
