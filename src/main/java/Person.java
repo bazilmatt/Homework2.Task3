@@ -10,14 +10,11 @@ public class Person{
         public Person(){
             age= rnd.nextInt(100);
             sex = new Sex();
-            name = "NAME"+rnd.nextInt(10);
+            name = RandomString.getAlphaNumericString(rnd.nextInt(1)+1);
         }
-
-
-
 
     @Override
     public String toString() {
-        return "Person " + " age=" + age + " sex=" + sex + " name='" + name;
+        return "Person " + " age=" + age + " sex=" + sex + " name=" + name;
     }
 }

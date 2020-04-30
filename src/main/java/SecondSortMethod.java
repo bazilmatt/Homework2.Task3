@@ -1,13 +1,8 @@
 public class SecondSortMethod implements Sorting <Person> {
 
 
-    public void sortArray(Person[] array, int left, int right) {
-            if (right <= left) return;
-            int mid = (left+right)/2;
-            sortArray(array, left, mid);
-            sortArray(array, mid+1, right);
-            merge(array, left, mid, right);
-        }
+    public void sortArray(Person[] array) {
+
     }
 
     @Override
