@@ -3,16 +3,43 @@
  */
 public class Main {
 
+    static class DoublePersonException extends Exception{}
 
-
-    public static void main(String[] args) {
-        Person[] people = new Person[100];
-
-        for (int i = 0; i < people.length; i++) {
-            people[i]=new Person();
+    public static void generate(Person[] people, int j) throws DoublePersonException {
+        Person bufferPerson = new Person();
+        for (int i = 0; i < j; i++) {
+            if (people[i].compare(bufferPerson,people[i])==0){
+                //generate(people, j);  //использовался для гарантированного заполнения массива
+                throw new DoublePersonException();
+            } else {
+                people[j] = bufferPerson;
+            }
         }
+    }
+
+    public static void main(String[] args) throws DoublePersonException, NullPointerException {
+
+
+        Person[] people = new Person[1000];
+
+        for (int i=0; i<people.length; i++) {
+            if (i>0){
+                try {
+                    generate(people, i);
+                } catch (DoublePersonException e) {
+                    System.out.println("Дубль замечен. Уничтожить");
+                } catch (NullPointerException e) {
+                    System.out.println("NullPointException");
+                }
+            } else {
+                people[i]=new Person();
+            }
+        }
+
         FirstSortMethod fs = new FirstSortMethod();
-        fs.sortAndPrint(people);
+
+        fs.sortArray(people);
+        fs.print(people);
 
 
 
